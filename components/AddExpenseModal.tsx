@@ -1,4 +1,3 @@
-
 import React, { useState, useContext, useMemo } from 'react';
 import { AppContext } from '../context/AppContext';
 import { Category, Expense, ExpenseParticipant, Group, User } from '../types';
@@ -106,7 +105,8 @@ const AddExpenseModal: React.FC = () => {
             payerId,
             participants: expenseParticipants,
             category,
-            date: new single().toISOString(),
+            // fix: Corrected a typo from `new single()` to `new Date()` to get the current timestamp.
+            date: new Date().toISOString(),
         };
         dispatch({ type: 'ADD_EXPENSE', payload: newExpense });
     };

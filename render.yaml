@@ -1,0 +1,28 @@
+# render.yaml
+# This file configures the deployment of your React application on Render.
+# It assumes you have a package.json file with a "build" script
+# that compiles your TypeScript/React code into static HTML, CSS, and JS files.
+
+services:
+  - type: staticSite
+    # A unique name for your static site
+    name: p2p-expense-ledger
+    
+    # The environment for the service. 'static' is appropriate for frontend apps.
+    env: static
+    
+    # The command Render will run to build your site.
+    # This typically installs dependencies and then runs your build script.
+    buildCommand: npm install && npm run build
+    
+    # The directory where your built static files are located after the build command runs.
+    # Common directories are 'dist' (for Vite) or 'build' (for Create React App).
+    publishDir: ./dist
+    
+    # Rewrite rule for Single Page Applications (SPAs).
+    # This ensures that all navigation requests are handled by your index.html,
+    # allowing client-side routing (like React Router) to work correctly.
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
