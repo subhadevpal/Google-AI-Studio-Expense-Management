@@ -17,6 +17,13 @@ services:
     # Common directories are 'dist' (for Vite) or 'build' (for Create React App).
     publishDir: ./dist
     
+    # Environment variables for the build process.
+    # Explicitly setting a recent Node.js version ensures compatibility
+    # with modern tooling and dependencies (e.g., React 19).
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+    
     # Rewrite rule for Single Page Applications (SPAs).
     # This ensures that all navigation requests are handled by your index.html,
     # allowing client-side routing to work correctly.
