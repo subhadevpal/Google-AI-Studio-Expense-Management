@@ -1,0 +1,5 @@
+{
+  "name": "P2P Expense Ledger",
+  "description": "A trusted, fast-to-market, debt-tracking-only application for managing expenses between friends and groups. This MVP focuses on core logic and user experience for a simple ledger.",
+  "requestFramePermissions": []
+}
