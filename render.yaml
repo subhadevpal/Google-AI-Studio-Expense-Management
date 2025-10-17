@@ -4,12 +4,10 @@
 # that compiles your TypeScript/React code into static HTML, CSS, and JS files.
 
 services:
-  - type: staticSite
+  # The type for a static site on Render is 'static_site'.
+  - type: static_site
     # A unique name for your static site
     name: p2p-expense-ledger
-    
-    # The environment for the service. 'static' is appropriate for frontend apps.
-    env: static
     
     # The command Render will run to build your site.
     # This typically installs dependencies and then runs your build script.
@@ -21,7 +19,7 @@ services:
     
     # Rewrite rule for Single Page Applications (SPAs).
     # This ensures that all navigation requests are handled by your index.html,
-    # allowing client-side routing (like React Router) to work correctly.
+    # allowing client-side routing to work correctly.
     routes:
       - type: rewrite
         source: /*
